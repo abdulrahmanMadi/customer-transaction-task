@@ -1,0 +1,24 @@
+<div class="container-fluid my-2">
+  <h3 class="my-4">Transactions Details</h3>
+
+  <div style="display: block">
+    <div class="table-responsive my-3" *ngIf="customer">
+      <table class="table table-bordered">
+        <thead class="text-white bg-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of getCustomerTransactions()">
+            <td scope="row">{{ transaction.id }}</td>
+            <td>{{ transaction.amount | currency }}</td>
+            <td>{{ transaction.date | date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

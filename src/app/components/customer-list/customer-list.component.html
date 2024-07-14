@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="mt-5">
+    <h2 class="text-primary fw-bold mb-3">Customers List</h2>
+
+    <div class="table-responsive">
+      <table class="table table-stripped table-bordered border-white mt-5">
+        <thead class="bg-dark text-white">
+          <tr>
+            <th class="py-3 text-center">Customer Name</th>
+            <th class="py-3 text-center">Transactions Counts</th>
+            <th class="py-3 text-center">Total Transactions</th>
+            <th class="text-center py-3">Transactions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of filteredCustomers">
+            <td class="align-middle text-center">{{ customer.name }}</td>
+            <td class="align-middle text-center">{{ customer.transactions.length }}</td>
+            <td class="align-middle text-center">{{ customer.totalTransaction | currency }}</td>
+            <td class="text-center align-middle">
+              <button class="btn btn-primary shadow-none" (click)="openTransactionDetails(customer.id)">Details</button>
+            </td>
+          </tr>
+          <tr *ngIf="filteredCustomers.length === 0">
+            <td colspan="4" class="text-center">There Is No Data To Show</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

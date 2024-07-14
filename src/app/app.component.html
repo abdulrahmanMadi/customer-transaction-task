@@ -1,0 +1,5 @@
+<div>
+    <app-customer-list [customers]="customers" (customerSelected)="onCustomerSelected($event)"></app-customer-list>
+    <app-transaction-details [customer]="selectedCustomer" [transactions]="transactions"></app-transaction-details>
+  </div>
+  
